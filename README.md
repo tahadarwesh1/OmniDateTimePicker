@@ -23,7 +23,8 @@ A DateTime picker that lets user select a date and the time, with start & end as
 
 |                                                                    Light                                                                     |                                                                    Dark                                                                    |
 | :------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
-| ![Omni DateTime Range Picker - Light](https://raw.githubusercontent.com/alanchan-dev/OmniDateTimePicker/master/screenshots/lightmode_v2.png) | ![Omni DateTime Range Picker - Dark](https://raw.githubusercontent.com/alanchan-dev/OmniDateTimePicker/master/screenshots/darkmode_v2.png) |
+| ![Omni DateTime Range Picker - Light](https://raw.githubusercontent.com/alanchan-dev/OmniDateTimePicker/master/screenshots/lightmode_v2.png) | ![Omni DateTime Range Picker - Dark](https://raw.githubusercontent.com/alanchan-dev/OmniDateTimePicker/master/screenshots/darkmode_v2.png) | 
+![Omni DateTime Picker Arabic](https://github.com/user-attachments/assets/767cb881-3575-4932-b3b8-e992d2353143)
 
 ## Getting started
 
