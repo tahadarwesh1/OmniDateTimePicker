@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:omni_datetime_picker/src/extentions/string_extension.dart';
 
 import '../../bloc/omni_datetime_picker_bloc.dart';
 import 'bloc/time_picker_spinner_bloc.dart';
@@ -42,6 +46,9 @@ class TimePickerSpinner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final datetimeBloc = context.read<OmniDatetimePickerBloc>();
+    // get current localizations
+    final Locale appLocale = Localizations.localeOf(context);
+    log('appLocale: $appLocale');
 
     return BlocProvider(
       create: (context) => TimePickerSpinnerBloc(
@@ -113,12 +120,14 @@ class TimePickerSpinner extends StatelessWidget {
                         state.hours.length,
                         (index) {
                           String hour = state.hours[index];
-
                           if (isForce2Digits) {
                             hour = hour.padLeft(2, '0');
                           }
-
-                          return Center(child: Text(hour));
+                          return Center(
+                              child: Text(
+                            MaterialLocalizations.of(context).formatHour(
+                                TimeOfDay(hour: int.parse(hour), minute: 0)),
+                          ));
                         },
                       ),
                     ),
@@ -144,11 +153,14 @@ class TimePickerSpinner extends StatelessWidget {
                         state.minutes.length,
                         (index) {
                           String minute = state.minutes[index];
-
                           if (isForce2Digits) {
                             minute = minute.padLeft(2, '0');
                           }
-                          return Center(child: Text(minute));
+                          return Center(
+                              child: Text(
+                            MaterialLocalizations.of(context).formatMinute(
+                                TimeOfDay(hour: 0, minute: int.parse(minute))),
+                          ));
                         },
                       ),
                     ),
@@ -180,7 +192,13 @@ class TimePickerSpinner extends StatelessWidget {
                               second = second.padLeft(2, '0');
                             }
 
-                            return Center(child: Text(second));
+                            return Center(
+                                child: Text(
+                              appLocale.languageCode == "ar"
+                                  ? second.toArabicNumbers()
+                                  : second,
+                              locale: appLocale,
+                            ));
                           },
                         ),
                       ),
